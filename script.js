@@ -207,6 +207,10 @@
             })
             .then((data) => {
                 console.log(data);
+
+                artist.innerHTML = "";
+                album.innerHTML = "";
+
                 for (let i = 0; i < data.item.artists.length; i++) {
                     console.log(i);
                     console.log(data);
@@ -216,7 +220,7 @@
                         artists.id = 'artists-' + i;
                         artist.appendChild(artists);
                     }
-                    artists.innerHTML = data.item.artists[i].name;
+                    artists.innerHTML = data.item.artists[i].name + " ";
                     album.innerHTML = data.item.album.name;
                     if (data.item.artists[0].name == "LOONA" || data.item.artists[0].name == "LOOΠΔ 1/3" || data.item.artists[0].name == "LOOΠΔ / ODD EYE CIRCLE" || data.item.artists[0].name == "LOONA/yyxy") {
                         albumart.src = "https://pbs.twimg.com/media/Fj0-XLKXgAIGyDI.jpg:large";
@@ -229,10 +233,11 @@
                 }
 
 
-                currentlyPlaying.innerHTML = data.item.name;
+                currentlyPlaying.innerHTML = data.item.name + "  ";
                 if (!data.is_playing) {
                     currentlyPlaying.innerHTML = "Nothing is playing";
                     artist.innerHTML = "";
+                    album.innerHTML = "";
                     albumart.src = "";
                 }
             })
